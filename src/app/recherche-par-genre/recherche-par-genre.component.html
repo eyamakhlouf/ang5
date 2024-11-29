@@ -1,0 +1,37 @@
+<div class="container">
+
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <label>Genres</label>
+        <select class="form-control form-control-lg" id="idGen" name="idGen"
+        [(ngModel)]="IdGenre" (change)="onChange()">
+        <option *ngFor="let gen of genres" value="{{gen.idGen}}">
+        {{gen.nomGen}}
+         </option>
+        </select>
+        </div>
+        
+
+
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <tr> <th>Id</th><th>Titre</th> <th>Auteur</th><th>Prix</th> <th>Date Publication</th> <th>Genre</th> </tr>
+    <tbody *ngFor="let livre of livres">
+    <tr >
+    <td>{{livre.idLivre }}</td>
+    <td>{{livre.titreLivre }}</td>
+    <td>{{livre.auteur }}</td>
+    <td>{{livre.prixLivre}}</td>
+    <td>{{livre .datePublication | date:'dd/MM/yyyy'}}</td>
+    <td>{{livre.genre.nomGen}}</td>
+    <!--<td><a class="btn btn-success" [routerLink]="['/updateLivre',livre.idLivre]">Modifier</a></td>
+    <td><a class="btn btn-danger" (click)="supprimerLivre(livre)">Supprimer</a></td>-->
+    
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+
+
